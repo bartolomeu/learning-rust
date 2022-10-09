@@ -9,12 +9,3 @@ https://doc.rust-lang.org/book/
 
 https://doc.rust-lang.org/book/ch03-02-data-types.html
 
-
-
-
-
-
-
-
-
-
