@@ -1,26 +1,56 @@
-fn main() {
-    // exercise01(5,7);
-    // exercise02();
-    // exercise03();
-    exercise04();
+use std::i32;
 
+fn main() {
+    if false {
+        exercise01(5,7);
+        exercise02();
+        exercise03();
+        exercise04();
+    }
+
+    exercise05();
+
+}
+
+fn exercise05 (){
+    let num = 50;
+    let fib = calculate_fibonacci(num);
+    println!("fibonacci {num} => {fib}");
+}
+
+fn calculate_fibonacci(num: u32) -> u32{
+    if (num == 1) ^ (num == 2) {
+        return 1;
+    }
+    let fib1 = calculate_fibonacci(num -1);
+    let fib2 = calculate_fibonacci(num -2);
+    // println!("fib-1 => {fib1}");
+    // println!("fib-2 => {fib2}");
+    return fib1 + fib2;
 }
 
 
 fn exercise04(){
-    let f = 1;
-    let c = celsius_to_fahrenheit(f);
+    let c : f32 = 20.0;
+    let f = celsius_to_fahrenheit(c);
 
-    println!("{f}F {c}C");
+    println!("{c}C {f}F");
+
+    let f1 = 20.0;
+    let c1 = fahrenheit_to_celsius(f1);
+
+    println!("{f1}F {c1}C");
 }
 
-fn celsius_to_fahrenheit(celsius:i32) -> i32{
-    let fahrenheit = (celsius * 9/5) + 32;
+fn celsius_to_fahrenheit(celsius:f32) -> f32{
+    let fahrenheit = (celsius * (9.0/5.0)) + 32.0;
     return fahrenheit;
 }
 
-// fn fahrenheit_to_celsius(celsius:i32) -> i32{
-// }
+fn fahrenheit_to_celsius(fahrenheit:f32) -> f32{
+    let celsius: f32 = (fahrenheit - 32.0) * 5.0/9.0;
+    return celsius;
+}
 
 fn exercise03 () {
     let arr = (0..4).rev();
