@@ -57,6 +57,6 @@ fn exercise_02(){
     // println!("s1 => {s1}"); //this line gives an error "value borrowed here after move"
     println!("s2 => {s2}");
 
-    let s3 = s2.clone();
-    println!("s3 => {s3}");
+    let s3 = s2.clone(); //may be expensive (deep copy)
+    println!("s3 => {s3}"); //works fine because the data was deeply copied, not moved like s1 was to s2
 }
