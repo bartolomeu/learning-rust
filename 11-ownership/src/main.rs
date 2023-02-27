@@ -11,9 +11,11 @@ fn main() {
 
     if false {
         exercise_01();
+        exercise_02();
+        exercise_03();
     }
     
-    exercise_02();
+    exercise_04()
 }
 
 fn exercise_01(){
@@ -59,4 +61,34 @@ fn exercise_02(){
 
     let s3 = s2.clone(); //may be expensive (deep copy)
     println!("s3 => {s3}"); //works fine because the data was deeply copied, not moved like s1 was to s2
+}
+
+fn exercise_03(){
+    let s1 =  gives_ownership_str();
+    let s2 = String::from("hi");
+    let s3 = takes_and_gives_back(s2);
+
+    println!("s1 => {s1}");
+    //println!("s2 => {s2}"); //gives an error, s2 was moved to "takes_and_gives_back()" function scope and returned to s3
+    println!("s3 => {s3}");
+
+    fn gives_ownership_str() -> String{
+        let inner_str = String::from("inner");
+        inner_str
+    }
+    fn takes_and_gives_back (mut str : String) -> String { //s2 isn't mutable but in this context is declared as mutable and can be changed
+        str.push_str(" pushed");
+        str
+    }
+}
+
+fn exercise_04(){
+    let s1 = String::from("ops");
+    let (s2, len) = calc_length(s1);
+    println!("s2 => {s2}, len => {len}");
+
+    fn calc_length(str: String) -> (String, usize){ //Multiple values returned
+        let len = str.len();
+        (str, len)
+    }
 }
